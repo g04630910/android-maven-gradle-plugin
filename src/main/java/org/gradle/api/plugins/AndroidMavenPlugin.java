@@ -182,7 +182,7 @@ public class AndroidMavenPlugin implements Plugin<ProjectInternal> {
                             pom.getArtifactId().equals(MavenProject.EMPTY_PROJECT_ARTIFACT_ID) ? module.getName() : pom.getArtifactId(),
                             pom.getVersion().equals(MavenProject.EMPTY_PROJECT_VERSION) ? module.getVersion() : pom.getVersion()
                     );
-                    publicationRegistry.registerPublication(project.getPath(), new DefaultProjectPublication(Describables.withTypeAndName("Maven repository", resolver.getName()), publicationId, true));
+                    publicationRegistry.registerPublication((ProjectInternal) project, new DefaultProjectPublication(Describables.withTypeAndName("Maven repository", resolver.getName()), publicationId, true));
                 }
             }
         });
